@@ -147,7 +147,7 @@ export function CityCard({ city }: CityCardProps) {
           </div>
 
           {/* Like/Dislike Buttons */}
-          <div className="flex items-center gap-4 pt-2 border-t">
+          <div className="flex items-center justify-between pt-2 border-t">
             <button
               onClick={handleLike}
               className="flex items-center gap-2 transition-colors"
@@ -167,6 +167,9 @@ export function CityCard({ city }: CityCardProps) {
               onClick={handleDislike}
               className="flex items-center gap-2 transition-colors"
             >
+              <span className={`text-sm font-medium ${disliked ? "text-red-500" : ""}`}>
+                {dislikesCount}
+              </span>
               <ThumbsDown
                 className={`h-5 w-5 ${
                   disliked
@@ -174,9 +177,6 @@ export function CityCard({ city }: CityCardProps) {
                     : "text-muted-foreground hover:text-red-500"
                 }`}
               />
-              <span className={`text-sm font-medium ${disliked ? "text-red-500" : ""}`}>
-                {dislikesCount}
-              </span>
             </button>
           </div>
         </CardContent>
